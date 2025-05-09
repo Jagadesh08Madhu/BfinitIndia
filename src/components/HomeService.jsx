@@ -93,8 +93,8 @@ export default function HomeService() {
             }}
           >
             <span className='text-4xl'>{service.logo}</span>
-            <h1 className='text-2xl font-semibold'>{service.heading}</h1>
-            <p className='text-lg'>{service.content}</p>
+            <h1 className='text-xl font-semibold'>{service.heading}</h1>
+            <p className='text-base'>{service.content}</p>
           </motion.div>
         ))}
       </div>
