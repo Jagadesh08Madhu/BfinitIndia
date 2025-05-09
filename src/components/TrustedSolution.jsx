@@ -67,7 +67,7 @@ export default function TrustedSolution() {
       </motion.div>
 
       {/* Cards */}
-      <div className='grid grid-cols-1 md:grid-cols-2 mt-10 lg:px-20 lg:grid-cols-4 gap-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 mt-10 lg:px-14 lg:grid-cols-4 gap-5'>
         {Solutions.map((solution, index) => (
           <motion.div
             key={index}
