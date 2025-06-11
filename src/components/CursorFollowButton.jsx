@@ -27,7 +27,7 @@ const CursorFollowButton = () => {
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [cursorPosition]); // Re-run effect when cursor position updates
+  }, [cursorPosition]); 
 
   return (
     <>

@@ -15,14 +15,14 @@ export default function Home() {
       <CursorFollowButton/>
       {/* Foreground Content */}
       <motion.div 
-        className="flex flex-col lg:flex-row items-center justify-between px-5 gap-5 lg:px-10 py-20 h-full" 
+        className="flex flex-col lg:flex-col items-center justify-between bg-[#010D26] text-white px-5 gap-5 lg:px-10 py-20 h-full" 
         initial={{ opacity: 0, y: 50 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1 }}
       >
-        <div className="flex flex-col justify-center gap-5 lg:w-1/2 order-2 lg:order-1">
+        <div className="flex flex-col justify-center gap-5 max-w-5xl order-2 lg:order-1">
           <motion.h1 
-            className="text-4xl font-bold" 
+            className="text-4xl font-bold text-center" 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ delay: 0.5, duration: 1 }}
@@ -31,7 +31,7 @@ export default function Home() {
             for reliable, secure, and affordable performance.
           </motion.h1>
 
-          {["Free Domain & Site Migration",
+          {/* {["Free Domain & Site Migration",
             "Supports WordPress and All CMS",
             "Fully Managed Web Hosting",
             "24/7 Expert Customer Support"].map((item, index) => (
@@ -47,10 +47,10 @@ export default function Home() {
               </span>
               <p className="text-lg">{item}</p>
             </motion.div>
-          ))}
+          ))} */}
 
           <motion.p 
-            className="text-lg" 
+            className="text-lg text-center" 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ delay: 1.5, duration: 1 }}
@@ -58,7 +58,7 @@ export default function Home() {
             Get domains, web hosting, and WordPress tools, all in one place. Build your website with ease and save big this Black Friday, only with Cloudz Domain Hosting Solution.
           </motion.p>
 
-          <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex flex-col justify-center md:flex-row gap-5">
             <motion.button 
               className="bg-gradient-to-r hover:bg-gradient-to-l from-[#08B0F6] via-[#08b5f7] to-[#066EEB]  group text-white px-6 py-2 flex items-center justify-center gap-3 rounded-xl font-semibold transition-all ease-in-out duration-700"
               initial={{ opacity: 0 }}
@@ -71,7 +71,7 @@ export default function Home() {
               </span>
             </motion.button>
             <motion.button 
-              className="bg-transparent border border-black px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-black transition"
+              className="bg-transparent border border-white px-6 py-2 rounded-lg font-semibold hover:bg-white hover:text-black transition"
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               transition={{ delay: 2.2, duration: 1 }}
@@ -92,7 +92,7 @@ export default function Home() {
             alt="Hero" 
             draggable='false' 
             oncontextmenu="return false;" 
-            className="w-full"
+            className="w-full rounded-2xl"
           />
         </motion.div>
       </motion.div>

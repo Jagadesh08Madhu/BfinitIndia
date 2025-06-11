@@ -13,13 +13,13 @@ export default function Navbar() {
   };
 
   return (
-    <section className='text-black border-b shadow-lg px-4 py-3 md:px-8 relative z-50'>
-      <div className='flex justify-around items-center'>
+    <section className='text-white shadow-slate-900 shadow-lg px-4 py-6 bg-[#010D26] md:px-8 relative z-50'>
+      <div className='flex justify-between px-3 lg:justify-around items-center'>
         {/* Logo */}
         <div className='flex items-center gap-3 cursor-pointer select-none'>
-          <div className='bg-violet-950 rounded-full p-3'>
+          {/* <div className='bg-violet-950 rounded-full p-3'>
             <img className='w-8 h-8' src={logo} alt="Logo" />
-          </div>
+          </div> */}
           <h1
             style={{ letterSpacing: '5px' }}
             className='text-xl font-semibold font-cardo'
@@ -29,7 +29,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <div className='md:hidden'>
+        <div className='lg:hidden'>
           <motion.div
             initial={false}
             animate={{ rotate: menuOpen ? 180 : 0 }}
@@ -42,7 +42,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <ul className='hidden md:flex gap-8 font-semibold font-nunito items-center'>
+        <ul style={{letterSpacing:"3px"}} className='hidden lg:flex gap-10 font-semibold font-nunito items-center'>
           <li className='hover:text-violet-600 transition'>Home</li>
 
           <li
@@ -59,7 +59,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10'
+                  className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10 text-black'
                 >
                   <li className='px-4 py-2 hover:bg-gray-100'>Web Hosting</li>
                   <li className='px-4 py-2 hover:bg-gray-100'>VPS Hosting</li>
@@ -86,7 +86,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10'
+                  className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10 text-black'
                 >
                   <li className='px-4 py-2 hover:bg-gray-100'>About Us</li>
                   <li className='px-4 py-2 hover:bg-gray-100'>Our Brands</li>
@@ -107,7 +107,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             // transition={{ type: 'spring', stiffness: 300 }}
-            className='absolute left-0 right-0 top-full bg-white shadow-xl md:hidden mt- z-40 px-4 py-6 font-nunito font-semibold'
+            className='absolute left-0 right-0 top-full bg-[#010D26] shadow-xl lg:hidden mt- z-40 px-4 py-6 font-nunito font-semibold'
           >
             <div className='gap-5 flex flex-col items-center'>
               <div>Home</div>
