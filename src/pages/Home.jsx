@@ -60,13 +60,13 @@ export default function Home() {
 
           <div className="flex flex-col justify-center md:flex-row gap-5">
             <motion.button 
-              className="bg-gradient-to-r hover:bg-gradient-to-l from-[#08B0F6] via-[#08b5f7] to-[#066EEB]  group text-white px-6 py-2 flex items-center justify-center gap-3 rounded-xl font-semibold transition-all ease-in-out duration-700"
+              className="bg-white  group text-black px-6 py-2 flex items-center justify-center gap-3 rounded-xl font-semibold transition-all ease-in-out duration-700"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }} 
               transition={{ delay: 2, duration: 1 }}
             >
               Get Started
-              <span className="text-lg bg-white text-black rounded-full p-2 transition-all duration-500 ease-in-out transform group-hover:translate-x-2">
+              <span className="text-lg bg-[#010D26] text-white  rounded-full p-2 transition-all duration-500 ease-in-out transform group-hover:translate-x-2">
                 <IoIosArrowForward />
               </span>
             </motion.button>
@@ -97,8 +97,9 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      <HomeService/>
+      
       <TrustedSolution/>
+      <HomeService/>
       <HomeSupport/>
     </section>
   );
