@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import logo from '../assets/logo.png';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <section className='text-white shadow-slate-900 shadow-lg px-4 py-6 bg-[#010D26] md:px-8 relative z-50'>
+    <section className='text-white shadow-gray-900 shadow-md px-4 py-6 bg-[#223B54] md:px-8 relative z-50'>
       <div className='flex justify-between px-3 lg:justify-around items-center'>
         {/* Logo */}
         <div className='flex items-center gap-3 cursor-pointer select-none'>

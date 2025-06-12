@@ -15,7 +15,7 @@ export default function Home() {
       <CursorFollowButton/>
       {/* Foreground Content */}
       <motion.div 
-        className="flex flex-col lg:flex-col items-center justify-between bg-[#010D26] text-white px-5 gap-5 lg:px-10 py-20 h-full" 
+        className="flex flex-col lg:flex-col items-center justify-between bg-[#223B54] text-white px-5 gap-5 lg:px-10 py-20 h-full" 
         initial={{ opacity: 0, y: 50 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1 }}
@@ -27,7 +27,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Your perfect <span className='text-[#0671EC] '> hosting solutions </span>
+            Your perfect <span className='text-[#000C1D]'> hosting solutions </span>
             for reliable, secure, and affordable performance.
           </motion.h1>
 

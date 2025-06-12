@@ -82,7 +82,7 @@ export default function TrustedSolution() {
               delay: index * 0.1
             }}
           >
-            <div className='absolute w-full h-full bg-[#0F1137] z-0 -bottom-[100%] group-hover:bottom-0 transition-all ease-in-out duration-500 left-0 rounded-2xl'></div>
+            <div className='absolute w-full h-full bg-[#223B54] z-0 -bottom-[100%] group-hover:bottom-0 transition-all ease-in-out duration-500 left-0 rounded-2xl'></div>
             <span className='text-6xl z-10 text-[#08B0F6] group-hover:text-white'>
               {solution.logo}
             </span>
