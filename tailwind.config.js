@@ -10,6 +10,7 @@ export default {
         'cardo': ['Cardo', 'serif'],
         'nunito': ['Nunito Sans', 'sans-serif'],
         'dmsans': ['DM Sans', 'sans-serif'],
+        'plus' : ['Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },

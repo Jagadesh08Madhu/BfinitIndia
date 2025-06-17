@@ -12,7 +12,8 @@ export default function Navbar() {
   };
 
   return (
-    <section className='text-white shadow-gray-900 shadow-md px-4 py-6 bg-[#223B54] md:px-8 relative z-50'>
+    // <section className='text-black rounded-3xl left-4 top-5 bg-white bg-opacity-90 fixed shadow-gray-500 shadow-md px-4 py-6  md:px-8 w-[99%] z-50'>
+    <section className="backdrop-blur-md bg-white/30 rounded-3xl left-4 top-5 fixed shadow-md shadow-gray-500 px-4 py-6 md:px-8 w-[99%] z-50 text-black border border-white/20">
       <div className='flex justify-between px-3 lg:justify-around items-center'>
         {/* Logo */}
         <div className='flex items-center gap-3 cursor-pointer select-none'>
@@ -106,7 +107,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             // transition={{ type: 'spring', stiffness: 300 }}
-            className='absolute left-0 right-0 top-full bg-[#010D26] shadow-xl lg:hidden mt- z-40 px-4 py-6 font-nunito font-semibold'
+            className='absolute left-0 right-0 top-full backdrop-blur-md bg-white/90 rounded-3xl shadow-xl lg:hidden mt- z-40 px-4 py-6 font-nunito font-semibold'
           >
             <div className='gap-5 flex flex-col items-center'>
               <div>Home</div>
@@ -119,7 +120,7 @@ export default function Navbar() {
                 Hosting Products <ChevronDown className={`transition-transform ${mobileDropdown === 'hosting' ? 'rotate-180' : ''}`} size={18} />
               </div>
               {mobileDropdown === 'hosting' && (
-                <ul className='pl-4 flex flex-col gap-3 text-center bg-gray-100 p-4 rounded w-full'>
+                <ul className='pl-4 flex flex-col cursor-pointer gap-3 text-black text-center bg-gray-100 p-4 rounded w-full'>
                   <li>Web Hosting</li>
                   <li>VPS Hosting</li>
                   <li>Dedicated Server</li>
@@ -137,7 +138,7 @@ export default function Navbar() {
                 Company <ChevronDown className={`transition-transform ${mobileDropdown === 'tech' ? 'rotate-180' : ''}`} size={18} />
               </div>
               {mobileDropdown === 'tech' && (
-                <ul className='pl-4 flex flex-col text-center gap-3 bg-gray-100 p-4 rounded w-full'>
+                <ul className='pl-4 flex flex-col cursor-pointer text-center text-black gap-3 bg-gray-100 p-4 rounded w-full'>
                   <li>About Us</li>
                   <li>Our Brands</li>
                 </ul>
