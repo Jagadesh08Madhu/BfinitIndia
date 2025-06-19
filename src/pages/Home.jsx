@@ -87,30 +87,50 @@ export default function Home() {
 
         {/* Hero Image */}
         <motion.div
-          className="relative lg:w-1/2 order-1 lg:order-2 z-20"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1, duration: 1 }}
-        >
-          <img
-            src={hero}
-            alt="Hero"
-            draggable="false"
-            onContextMenu={(e) => e.preventDefault()}
-            className="w-full  rounded-2xl"
-          />
-          <div className='-bottom-20 left-48 lg:flex hidden rounded-2xl w-[200px] absolute'>
-            <img className='rounded-2xl shadow-lg' src={heroside} alt="" />
-          </div>
+            className="relative lg:w-1/2 order-1 lg:order-2 z-20"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1, duration: 1 }}
+          >
+            <img
+              src={hero}
+              alt="Hero"
+              draggable="false"
+              onContextMenu={(e) => e.preventDefault()}
+              className="w-full rounded-2xl"
+            />
 
-          <div className='bottom-32 -right-36 lg:flex hidden rounded-2xl w-[200px] absolute'>
-            <img className='rounded-2xl shadow-lg' src={heroside2} alt="" />
-          </div>
+            {/* heroside animation */}
+            <motion.div
+              className="-bottom-20 left-48 lg:flex hidden rounded-2xl w-[200px] absolute"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              <img className="rounded-2xl shadow-lg" src={heroside} alt="" />
+            </motion.div>
 
-          <div className='bottom-48 -left-40 lg:flex hidden rounded-2xl w-[200px] absolute'>
-            <img className='rounded-2xl shadow-lg' src={heroside3} alt="" />
-          </div>
-        </motion.div>
+            {/* heroside2 animation */}
+            <motion.div
+              className="bottom-32 -right-36 lg:flex hidden rounded-2xl w-[200px] absolute"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.4, duration: 0.8 }}
+            >
+              <img className="rounded-2xl shadow-lg" src={heroside2} alt="" />
+            </motion.div>
+
+            {/* heroside3 animation */}
+            <motion.div
+              className="bottom-48 -left-40 lg:flex hidden rounded-2xl w-[200px] absolute"
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+            >
+              <img className="rounded-2xl shadow-lg" src={heroside3} alt="" />
+            </motion.div>
+          </motion.div>
+
         
       </motion.div>
 
