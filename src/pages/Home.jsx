@@ -10,6 +10,8 @@ import HomeSupport from '../components/HomeSupport';
 import homebg from '../assets/homebg.png';
 import bg2 from '../assets/bg2.png';
 import heroside from '../assets/sidehero.png'
+import heroside2 from '../assets/sidehero2.png'
+import heroside3 from '../assets/sidehero3.png'
 
 export default function Home() {
   return (
@@ -78,7 +80,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 2.2, duration: 1 }}
             >
-              View All Plans
+              Contact Us
             </motion.button>
           </div>
         </div>
@@ -97,9 +99,17 @@ export default function Home() {
             onContextMenu={(e) => e.preventDefault()}
             className="w-full  rounded-2xl"
           />
-          <div className='-bottom-20 left-48 md:flex hidden rounded-2xl w-[200px] absolute'>
-          <img className='rounded-2xl shadow-lg' src={heroside} alt="" />
-        </div>
+          <div className='-bottom-20 left-48 lg:flex hidden rounded-2xl w-[200px] absolute'>
+            <img className='rounded-2xl shadow-lg' src={heroside} alt="" />
+          </div>
+
+          <div className='bottom-32 -right-36 lg:flex hidden rounded-2xl w-[200px] absolute'>
+            <img className='rounded-2xl shadow-lg' src={heroside2} alt="" />
+          </div>
+
+          <div className='bottom-48 -left-40 lg:flex hidden rounded-2xl w-[200px] absolute'>
+            <img className='rounded-2xl shadow-lg' src={heroside3} alt="" />
+          </div>
         </motion.div>
         
       </motion.div>
