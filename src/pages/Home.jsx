@@ -3,15 +3,17 @@ import { IoMdCheckmark } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { motion } from 'framer-motion';
 import hero from '../assets/hero.png';
-import HomeService from '../components/HomeService';
-import TrustedSolution from '../components/TrustedSolution';
+import HomeService from '../components/Homecomponents/HomeService';
+import TrustedSolution from '../components/Homecomponents/TrustedSolution';
 import CursorFollowButton from '../components/CursorFollowButton';
-import HomeSupport from '../components/HomeSupport';
+import HomeSupport from '../components/Homecomponents/HomeSupport';
 import homebg from '../assets/homebg.png';
 import bg2 from '../assets/bg2.png';
 import heroside from '../assets/sidehero.png'
 import heroside2 from '../assets/sidehero2.png'
 import heroside3 from '../assets/sidehero3.png'
+import CreateWeb from '../components/Homecomponents/CreateWeb';
+import Blog from '../components/Homecomponents/Blog';
 
 export default function Home() {
   return (
@@ -137,7 +139,9 @@ export default function Home() {
       {/* Additional Sections */}
       <TrustedSolution />
       <HomeService />
+      <CreateWeb/>
       <HomeSupport />
+      <Blog/>
     </section>
   );
 }
