@@ -12,8 +12,8 @@ export default function Navbar() {
   };
 
   return (
-    // <section className='text-black rounded-3xl left-4 top-5 bg-white bg-opacity-90 fixed shadow-gray-500 shadow-md px-4 py-6  md:px-8 w-[99%] z-50'>
-    <section className="backdrop-blur-md bg-white/30 rounded-3xl left-0 lg:left-4 top-5 fixed shadow-md shadow-gray-500 px-4 py-6 md:px-8 w-[99%] z-50 text-black border border-white/20">
+    <section className='text-black rounded-b-3xl  bg-white bg-opacity-90 fixed shadow-gray-500 shadow-md px-4 py-6 w-full z-50'>
+  {/* <section className="backdrop-blur-md bg-white/30 rounded-3xl left-0 lg:left-4 top-5 fixed shadow-md shadow-gray-500 px-4 py-6 md:px-8 w-[99%] z-50 text-black border border-white/20"> */}
       <div className='flex justify-between px-3 lg:justify-around items-center'>
         {/* Logo */}
         <div className='flex items-center gap-3 cursor-pointer select-none'>

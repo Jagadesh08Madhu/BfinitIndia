@@ -1,147 +1,97 @@
-import React from 'react';
-import { IoMdCheckmark } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import React, { useEffect, useState } from 'react';
+import { IoCheckmark } from "react-icons/io5";
 import { motion } from 'framer-motion';
-import hero from '../assets/hero.png';
+import hero1 from '../assets/hero.webp';
 import HomeService from '../components/Homecomponents/HomeService';
 import TrustedSolution from '../components/Homecomponents/TrustedSolution';
 import CursorFollowButton from '../components/CursorFollowButton';
 import HomeSupport from '../components/Homecomponents/HomeSupport';
-import homebg from '../assets/homebg.png';
-import bg2 from '../assets/bg2.png';
-import heroside from '../assets/sidehero.png'
-import heroside2 from '../assets/sidehero2.png'
-import heroside3 from '../assets/sidehero3.png'
 import CreateWeb from '../components/Homecomponents/CreateWeb';
 import Blog from '../components/Homecomponents/Blog';
 
 export default function Home() {
+  const TWELVE_HOURS = 12 * 60 * 60; // 12 hours in seconds
+
+  const getInitialTimer = () => {
+    const saved = localStorage.getItem('timers');
+    return saved ? parseInt(saved, 10) : TWELVE_HOURS;
+  };
+
+  const [timers, setTimer] = useState(getInitialTimer);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prev => {
+        const next = prev <= 0 ? TWELVE_HOURS : prev - 1;
+        localStorage.setItem('timers', next.toString());
+        return next;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (seconds) => {
+    const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
+    const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+    const secs = String(seconds % 60).padStart(2, "0");
+    return `${hrs}:${mins}:${secs}`;
+  };
+
   return (
-    <section className="relative font-plus py-20 overflow-hidden">
+    <section className="relative font-plus overflow-hidden">
       <CursorFollowButton />
+      <section className="relative font-plus py-28 lg:py-20 mx-5 md:mx-20 overflow-hidden">
+        <div className='flex flex-col lg:flex-row lg:gap-20 w-full justify-center items-center'>
+          <div className='lg:w-2/5 flex flex-col gap-2'>
+            <h1 className='text-base'>Bfinit India Web Hosting</h1>
+            <p className='text-5xl leading-tight font-semibold text-[#123455]'>
+              Up to 70% Off Web hosting + Free gift pack
+            </p>
 
-      {/* Hero Section with Background */}
-      <motion.div
-        style={{
-          backgroundImage: `url(${homebg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          
-        }}
-        className="relative flex flex-col lg:flex-col items-center justify-between px-5 gap-5 lg:px-10 py-10 lg:py-20 h-full"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <img
-          src={bg2}
-          alt="Grid Overlay"
-          className="absolute  pointer-events-none z-10"
-          draggable="false"
-        />
+            <div className='flex items-center gap-1 mt-2'>
+              <span className='text-[#7E8AFF] text-3xl'><IoCheckmark /></span>
+              <p>Website builder including E-commerce</p>
+            </div>
+            <div className='flex items-center gap-1'>
+              <span className='text-[#7E8AFF] text-3xl'><IoCheckmark /></span>
+              <p>Dedicated Hosting server</p>
+            </div>
+            <div className='flex items-center gap-1'>
+              <span className='text-[#7E8AFF] text-3xl'><IoCheckmark /></span>
+              <p>24/7 Support</p>
+            </div>
 
-        <div className="z-20 flex flex-col lg:h-[70vh] justify-center gap-10 max-w-5xl order-2 lg:order-1">
-          <motion.h1
-            className="md:text-6xl text-4xl font-bold text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            style={{lineHeight:"90px"}}
-          >
-            Your perfect <span className="text-[#000C1D]">hosting solutions </span>
-            for reliable, secure, and affordable performance.
-          </motion.h1>
+            <div className='flex gap-5 items-center'>
+              <p className='line-through'>₹599 / Mon</p>
+              <p className='font-semibold text-[#7E8AFF]'>
+                <span className='text-3xl font-bold text-[#7E8AFF]'>₹429</span> / Mon
+              </p>
+            </div>
 
-          <motion.p
-            className="text-lg text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-          >
-            Get domains, web hosting, and WordPress tools, all in one place.
-            Build your website with ease and save big this Black Friday, only
-            with Cloudz Domain Hosting Solution.
-          </motion.p>
+            <div className='flex flex-col md:flex-row gap-5 mt-5'>
+              <button className='px-5 py-2 rounded-md bg-[#7E8AFF] text-white'>Start now</button>
+              <button className='px-5 py-2 rounded-md border border-black'>Contact us</button>
+            </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col justify-center md:flex-row gap-5">
-            <motion.button
-              className="bg-black group text-white px-6 py-2 flex items-center justify-center gap-3 rounded-xl font-semibold transition-all ease-in-out duration-700"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2, duration: 1 }}
-            >
-              Get Started
-              <span className="text-lg bg-white text-black rounded-full p-2 transition-all duration-500 ease-in-out transform group-hover:translate-x-2">
-                <IoIosArrowForward />
-              </span>
-            </motion.button>
-            <motion.button
-              className="bg-transparent border border-black px-6 py-2 rounded-lg font-semibold transition"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.2, duration: 1 }}
-            >
-              Contact Us
-            </motion.button>
+            <div className='flex items-center gap-2 mt-5'>
+              <p>Offer ends in</p>
+              <p className='text-[#7E8AFF] font-semibold'>{formatTime(timers)}</p>
+            </div>
+          </div>
+
+          <div className='lg:w-1/2'>
+            <img className='md:p-10 rounded-lg' src={hero1} alt="Hero" />
           </div>
         </div>
-
-        {/* Hero Image */}
-        <motion.div
-            className="relative lg:w-1/2 order-1 lg:order-2 z-20"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 1 }}
-          >
-            <img
-              src={hero}
-              alt="Hero"
-              draggable="false"
-              onContextMenu={(e) => e.preventDefault()}
-              className="w-full rounded-2xl"
-            />
-
-            {/* heroside animation */}
-            <motion.div
-              className="-bottom-20 left-48 lg:flex hidden rounded-2xl w-[200px] absolute"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
-              <img className="rounded-2xl shadow-lg" src={heroside} alt="" />
-            </motion.div>
-
-            {/* heroside2 animation */}
-            <motion.div
-              className="bottom-32 -right-36 lg:flex hidden rounded-2xl w-[200px] absolute"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.4, duration: 0.8 }}
-            >
-              <img className="rounded-2xl shadow-lg" src={heroside2} alt="" />
-            </motion.div>
-
-            {/* heroside3 animation */}
-            <motion.div
-              className="bottom-48 -left-40 lg:flex hidden rounded-2xl w-[200px] absolute"
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6, duration: 0.8 }}
-            >
-              <img className="rounded-2xl shadow-lg" src={heroside3} alt="" />
-            </motion.div>
-          </motion.div>
-
-        
-      </motion.div>
+      </section>
 
       {/* Additional Sections */}
       <TrustedSolution />
       <HomeService />
-      <CreateWeb/>
+      <CreateWeb />
       <HomeSupport />
-      <Blog/>
+      <Blog />
     </section>
   );
 }
