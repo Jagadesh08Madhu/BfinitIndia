@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const [desktopDropdown, setDesktopDropdown] = useState(null);
-
+  const navigate = useNavigate()
   const toggleMobileDropdown = (section) => {
     setMobileDropdown(mobileDropdown === section ? null : section);
   };
@@ -42,8 +43,8 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <ul style={{letterSpacing:"3px"}} className='hidden lg:flex gap-10 font-semibold font-nunito items-center'>
-          <li className='hover:text-violet-600 transition'>Home</li>
+        <ul style={{letterSpacing:"3px"}} className='hidden cursor-pointer lg:flex gap-10 font-semibold font-nunito items-center'>
+          <li  onClick={()=>navigate('/')} className='hover:text-violet-600 transition'>Home</li>
 
           <li
             className='relative cursor-pointer'
@@ -97,6 +98,9 @@ export default function Navbar() {
 
           <li className='hover:text-violet-600 transition'>Career</li>
         </ul>
+        <div className='lg:flex hidden'>
+          <button onClick={()=>navigate('/contact')} className='bg-[#5667ff] text-white px-5 py-2 rounded-lg '>Contact</button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -110,7 +114,7 @@ export default function Navbar() {
             className='absolute left-0 right-0 top-full backdrop-blur-md bg-white/90 rounded-3xl shadow-xl lg:hidden mt- z-40 px-4 py-6 font-nunito font-semibold'
           >
             <div className='gap-5 flex flex-col items-center'>
-              <div>Home</div>
+              <div  onClick={()=>{navigate('/'),setMenuOpen(!menuOpen)}} className='cursor-pointer'>Home</div>
 
               {/* Hosting Products Toggle */}
               <div
@@ -145,6 +149,10 @@ export default function Navbar() {
               )}
 
               <div>Career</div>
+
+              <div>
+                <button onClick={()=>navigate('/contact')} className='bg-[#5667ff] text-white px-5 rounded-lg py-2'>Contact us</button>
+              </div>
             </div>
           </motion.div>
         )}
