@@ -81,7 +81,7 @@ export default function Footer() {
         whileInView={{opacity:1 , y:0}}
         transition={{duration:0.5}}
         viewport={{once:true , amount:0.3}}
-        className='text-4xl lg:w-1/2 text-center'>Future-Ready Hosting for Expanding Businesses</motion.h1>
+        className='lg:text-4xl text-2xl lg:w-1/2 text-center'>Future-Ready Hosting for Expanding Businesses</motion.h1>
         <motion.button
         initial={{opacity:0 , y :40}}
         whileInView={{opacity:1 , y:0}}

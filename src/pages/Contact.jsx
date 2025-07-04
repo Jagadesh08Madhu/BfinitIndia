@@ -175,7 +175,7 @@ export default function Contact() {
     <section className="mx-5 py-28 md:mx-20">
       <div className="grid gap-8 md:gap-16 lg:grid-cols-2">
         <div className="flex flex-col gap-4 md:gap-8">
-          <h5 className="font-semibold md:text-2xl">Contact Us</h5>
+          <h5 className="font-semibold md:text-2xl text-[#5667ff]">Contact Us</h5>
           <p className="text-xl font-semibold text-primary md:text-3xl">
             To make requests for further information, contact us via our social
             channels.{" "}

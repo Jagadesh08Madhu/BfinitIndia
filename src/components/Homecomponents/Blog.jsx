@@ -51,7 +51,7 @@ export default function Blog() {
 
     return (
         <section className="mx-5 lg:mx-20 font-plus py-7 lg:py-14">
-            <h1 className="text-2xl text-center lg:text-4xl font-semibold mb-6">Recent Blogs</h1>
+            <h1 className="text-3xl text-center lg:text-4xl font-semibold mb-6 text-[#5667ff]">Recent Blogs</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {Blogs.map((blog, index) => (
                     <div key={index} className="border p-4 rounded-lg shadow-lg">

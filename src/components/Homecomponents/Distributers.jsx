@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Distributers() {
     const navigate = useNavigate()
   return (
-    <section className='font-plus mx-5 lg:mx-20 '>
+    <section className='font-plus mx-5 lg:mx-20 lg:py-20'>
         <div className='flex flex-col lg:flex-row gap-10 items-center'>
              <div>
                 <img src={distributer} className='rounded-2xl' alt="" />

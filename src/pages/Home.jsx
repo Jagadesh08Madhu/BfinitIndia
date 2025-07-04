@@ -10,6 +10,7 @@ import CreateWeb from '../components/Homecomponents/CreateWeb';
 import Blog from '../components/Homecomponents/Blog';
 import Distributers from '../components/Homecomponents/Distributers';
 import FreeGifts from '../components/Homecomponents/FreeGifts';
+import HostingFAQ from '../components/Homecomponents/HostingFAQ';
 
 export default function Home() {
   const TWELVE_HOURS = 12 * 60 * 60;
@@ -43,7 +44,7 @@ export default function Home() {
   return (
     <section className="relative font-plus overflow-hidden">
       <CursorFollowButton />
-      <section className="relative font-plus py-28 lg:py-20 mx-5 md:mx-20 overflow-hidden">
+      <section className="relative font-plus pt-28 lg:py-20 mx-5 md:mx-20 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -138,6 +139,7 @@ export default function Home() {
         <FreeGifts />
         <Distributers />
         <HomeSupport />
+        <HostingFAQ />
         <Blog />
       </motion.div>
     </section>

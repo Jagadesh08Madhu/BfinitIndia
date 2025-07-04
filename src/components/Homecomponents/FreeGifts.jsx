@@ -1,7 +1,9 @@
 import React from 'react';
 import { MdGraphicEq } from "react-icons/md";
 import { motion } from "framer-motion";
-
+import { CiGift } from "react-icons/ci";
+import bitss from '../../assets/bitss.png'
+import omada from '../../assets/Omada.png'
 export default function FreeGifts() {
   const bonusTiers = [
     { months: "3 Months", products: "1 free product", bonus: "+1 product" },
@@ -9,6 +11,39 @@ export default function FreeGifts() {
     { months: "12 Months", products: "4 free products", bonus: "+4 products" },
     { months: "24 Months", products: "5 free products", bonus: "+5 products" }
   ];
+
+  const giftPacks = [
+  {
+    logo: bitss,
+    title: "Bitss WAP",
+    inr: "₹1,755/year",
+    description: "Secures admin login from hacking & data theft",
+  },
+  {
+    logo: bitss,
+    title: "Bitss C",
+    inr: "₹675/year",
+    description: "Blocks spam on contact forms",
+  },
+  {
+    logo: bitss,
+    title: "Bitss VWAR",
+    inr: "₹2,655/year",
+    description: "Malware scanner with real-time threat blocking",
+  },
+  {
+    logo: omada,
+    title: "Omada HR Payroll 10",
+    inr: "₹16,200/year",
+    description: "Smart payroll for small to medium businesses",
+  },
+  {
+    logo: omada,
+    title: "Omada Clasico Payroll 25",
+    inr: "₹10,800/year",
+    description: "Generate payslips in professional format",
+  },
+];
 
   return (
     <section className='py-10 mx-5 lg:mx-20'>
@@ -89,8 +124,26 @@ export default function FreeGifts() {
             viewport={{ once: true }}
           >
             {/* You can add an illustration or image here */}
-            <div className='w-full h-full bg-blue-50 rounded-xl flex justify-center items-center text-blue-300 text-xl'>
-              <p>Illustration / Bonus Image</p>
+            <div className='w-full h-full rounded-xl flex flex-col gap-5'>
+                <div className='flex items-center  gap-2 text-[#7a85ea]'>
+                  <span><CiGift/></span>
+                  <p>Available Bonus Products</p>
+                </div>
+                <p>Unlock premium tools like login security, anti-spam, malware defense, and payroll software — worth up to
+                  <span className='text-[#7a85ea]'> €356.50/year</span> — free with eligible hosting plans.</p>
+                <p className='text-[#7a85ea] text-sm'>* Free product is valid for the duration of your hosting plan.</p>
+
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
+                    {giftPacks.map((giftPack , index) =>(
+                      <div key={index} className='flex gap-3'>
+                        <img className='w-10 h-10 ' src={giftPack.logo} alt={giftPack.title} />
+                        <div>
+                          <h1>{giftPack.title} - Gift Value : {giftPack.inr}</h1>
+                          <p className='text-sm text-gray-700'>{giftPack.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                </div>
             </div>
           </motion.div>
         </div>

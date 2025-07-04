@@ -71,7 +71,7 @@ export default function Navbar() {
             </AnimatePresence>
           </li>
 
-          <div>Our Technologies</div>
+          <div className=' cursor-pointer' onClick={()=>navigate('/our-technologies')} >Our Technologies</div>
 
           <li
             className='relative cursor-pointer'
@@ -89,7 +89,7 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: -10 }}
                   className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10 text-black'
                 >
-                  <li className='px-4 py-2 hover:bg-gray-100'>About Us</li>
+                  <li className='px-4 py-2 hover:bg-gray-100 cursor-pointer' onClick={()=>navigate("/about")}>About Us</li>
                   <li className='px-4 py-2 hover:bg-gray-100'>Our Brands</li>
                 </motion.ul>
               )}
@@ -132,7 +132,7 @@ export default function Navbar() {
                 </ul>
               )}
 
-              <div>Our Technologies</div>
+              <div className=' cursor-pointer' onClick={()=>{navigate('/our-technologies'),setMenuOpen(!menuOpen)}}>Our Technologies</div>
 
               {/* Company Toggle */}
               <div
@@ -143,7 +143,7 @@ export default function Navbar() {
               </div>
               {mobileDropdown === 'tech' && (
                 <ul className='pl-4 flex flex-col cursor-pointer text-center text-black gap-3 bg-gray-100 p-4 rounded w-full'>
-                  <li>About Us</li>
+                  <li className=' cursor-pointer' onClick={()=>{navigate('/about'),setMenuOpen(!menuOpen)}}>About Us</li>
                   <li>Our Brands</li>
                 </ul>
               )}
@@ -151,7 +151,7 @@ export default function Navbar() {
               <div>Career</div>
 
               <div>
-                <button onClick={()=>navigate('/contact')} className='bg-[#5667ff] text-white px-5 rounded-lg py-2'>Contact us</button>
+                <button onClick={()=>{navigate('/contact'),setMenuOpen(!menuOpen)}} className='bg-[#5667ff] text-white px-5 rounded-lg py-2'>Contact us</button>
               </div>
             </div>
           </motion.div>
