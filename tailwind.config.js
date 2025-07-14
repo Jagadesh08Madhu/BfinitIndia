@@ -8,11 +8,14 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#5667ff",
+      },
       fontFamily: {
         'cardo': ['Cardo', 'serif'],
         'nunito': ['Nunito Sans', 'sans-serif'],
         'dmsans': ['DM Sans', 'sans-serif'],
-        'plus' : ['Plus Jakarta Sans', 'sans-serif'],
+        'plus': ['Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },

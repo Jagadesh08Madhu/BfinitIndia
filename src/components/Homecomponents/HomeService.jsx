@@ -5,6 +5,7 @@ import { GrServer } from "react-icons/gr";
 import { BsLaptop } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
 import { FaCloud, FaUserLock } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 export default function HomeService() {
   const Services = [
@@ -45,6 +46,8 @@ export default function HomeService() {
                 Includes updates, backups, and security for peace of mind.`
     },
   ];
+
+  const navigate = useNavigate()
 
   return (
     <section className='bg-[#0F1137] lg:px-20 px-5 py-20 font-dmsans'>
@@ -109,8 +112,8 @@ export default function HomeService() {
       >
         Let’s make something great work together.{' '}
         <a
-          href=""
-          className="bg-gradient-to-r from-[#08B0F6] to-[#066EEB] bg-clip-text text-transparent font-semibold hover:underline transition duration-300"
+          onClick={()=>navigate('/contact')}
+          className="bg-gradient-to-r cursor-pointer from-[#08B0F6] to-[#066EEB] bg-clip-text text-transparent font-semibold hover:underline transition duration-300"
         >
           Contact us
         </a>

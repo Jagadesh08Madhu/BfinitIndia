@@ -7,151 +7,195 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const [desktopDropdown, setDesktopDropdown] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const navLinks = [
+    { label: "Home", to: "/" },
+    {
+      label: "Hosting Products",
+      dropdown: [
+        { label: "Web Hosting", to: "/web-hosting" },
+        { label: "VPS Hosting", to: "/vps-hosting" },
+        { label: "Dedicated Server", to: "/dedicated-server" },
+        { label: "Custom VPS", to: "/custom-vps" },
+        { label: "Starter Webpack", to: "/starter-web-pack" },
+        { label: "Distributors Affiliation", to: "/distributor" },
+        { label: "Ecommerce Pack", to: "/bfinit-ecomerce-platform" },
+        
+      ],
+    },
+    { 
+      label:"Hardwares", to:"/hardwares"
+    },
+    { label: "Our Technologies", to: "/our-technologies" },
+    {
+      label: "Company",
+      dropdown: [
+        { label: "About Us", to: "/about" },
+        { label: "Our Brands", to: "/our-brands" },
+        { label: "Career", to: "/career" }
+      ],
+    },
+    
+  ];
+
   const toggleMobileDropdown = (section) => {
     setMobileDropdown(mobileDropdown === section ? null : section);
   };
 
   return (
-    <section className='text-black rounded-b-3xl  bg-white bg-opacity-90 fixed shadow-gray-500 shadow-md px-4 py-6 w-full z-50'>
-  {/* <section className="backdrop-blur-md bg-white/30 rounded-3xl left-0 lg:left-4 top-5 fixed shadow-md shadow-gray-500 px-4 py-6 md:px-8 w-[99%] z-50 text-black border border-white/20"> */}
-      <div className='flex justify-between px-3 lg:justify-around items-center'>
-        {/* Logo */}
-        <div className='flex items-center gap-3 cursor-pointer select-none'>
-          {/* <div className='bg-violet-950 rounded-full p-3'>
-            <img className='w-8 h-8' src={logo} alt="Logo" />
-          </div> */}
-          <h1
-            style={{ letterSpacing: '5px' }}
-            className='text-xl font-semibold font-cardo'
-          >
+    <section className="text-black rounded-b-3xl bg-white bg-opacity-90 fixed shadow-gray-500 shadow-md px-4 py-6 w-full z-50">
+      <div className="flex justify-between px-3 lg:justify-around items-center">
+        <div className="flex items-center gap-3 cursor-pointer select-none">
+          <h1 style={{ letterSpacing: '5px' }} className="text-xl font-semibold font-cardo">
             Bfinit India
           </h1>
         </div>
 
         {/* Mobile Toggle */}
-        <div className='lg:hidden'>
+        <div className="lg:hidden">
           <motion.div
             initial={false}
             animate={{ rotate: menuOpen ? 180 : 0 }}
             transition={{ type: 'spring', stiffness: 300 }}
             onClick={() => setMenuOpen(!menuOpen)}
-            className='cursor-pointer'
+            className="cursor-pointer"
           >
             {menuOpen ? <X /> : <Menu />}
           </motion.div>
         </div>
 
-        {/* Desktop Nav */}
-        <ul style={{letterSpacing:"3px"}} className='hidden cursor-pointer lg:flex gap-10 font-semibold font-nunito items-center'>
-          <li  onClick={()=>navigate('/')} className='hover:text-violet-600 transition'>Home</li>
-
-          <li
-            className='relative cursor-pointer'
-            onMouseEnter={() => setDesktopDropdown('hosting')}
-            onMouseLeave={() => setDesktopDropdown(null)}
-          >
-            <div className='flex items-center gap-2'>
-              Hosting Products <ChevronDown className={`transition-transform `} size={18} />
-            </div>
-            <AnimatePresence>
-              {desktopDropdown === 'hosting' && (
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10 text-black'
+        {/* Desktop Navigation */}
+        <ul
+          style={{ letterSpacing: "3px" }}
+          className="hidden cursor-pointer lg:flex gap-10 font-semibold font-nunito items-center"
+        >
+          {navLinks.map((link, index) => (
+            <li
+              key={index}
+              className="relative"
+              onMouseEnter={() => link.dropdown && setDesktopDropdown(link.label)}
+              onMouseLeave={() => link.dropdown && setDesktopDropdown(null)}
+            >
+              {link.dropdown ? (
+                <div className="flex items-center gap-2">
+                  {link.label} <ChevronDown size={18} />
+                </div>
+              ) : (
+                <div
+                  onClick={() => navigate(link.to)}
+                  className="hover:text-violet-600 transition"
                 >
-                  <li className='px-4 py-2 hover:bg-gray-100'>Web Hosting</li>
-                  <li className='px-4 py-2 hover:bg-gray-100'>VPS Hosting</li>
-                  <li className='px-4 py-2 hover:bg-gray-100'>Dedicated Server</li>
-                  <li className='px-4 py-2 hover:bg-gray-100'>Custom VPS</li>
-                </motion.ul>
+                  {link.label}
+                </div>
               )}
-            </AnimatePresence>
-          </li>
 
-          <div className=' cursor-pointer' onClick={()=>navigate('/our-technologies')} >Our Technologies</div>
-
-          <li
-            className='relative cursor-pointer'
-            onMouseEnter={() => setDesktopDropdown('tech')}
-            onMouseLeave={() => setDesktopDropdown(null)}
-          >
-            <div className='flex items-center gap-2'>
-            Company<ChevronDown className={`transition-transform `} size={18} />
-            </div>
-            <AnimatePresence>
-              {desktopDropdown === 'tech' && (
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className='absolute bg-white border shadow-md mt-2 rounded-md p-2 space-y-1 z-10 text-black'
-                >
-                  <li className='px-4 py-2 hover:bg-gray-100 cursor-pointer' onClick={()=>navigate("/about")}>About Us</li>
-                  <li className='px-4 py-2 hover:bg-gray-100'>Our Brands</li>
-                </motion.ul>
-              )}
-            </AnimatePresence>
-          </li>
-
-          <li className='hover:text-violet-600 transition'>Career</li>
+              <AnimatePresence>
+                {desktopDropdown === link.label && link.dropdown && (
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute bg-white lg:w-[300px] border -left-5 shadow-md mt-2 rounded-md p-2 space-y-1 z-10 text-black"
+                  >
+                    {link.dropdown.map((sublink, i) => (
+                      <li
+                        key={i}
+                        onClick={() => navigate(sublink.to)}
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                      >
+                        {sublink.label}
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </li>
+          ))}
         </ul>
-        <div className='lg:flex hidden'>
-          <button onClick={()=>navigate('/contact')} className='bg-[#5667ff] text-white px-5 py-2 rounded-lg '>Contact</button>
+
+        {/* Desktop Contact Button */}
+        <div className="lg:flex hidden">
+          <button
+            onClick={() => navigate('/contact')}
+            className="bg-[#5667ff] text-white px-5 py-2 rounded-lg"
+          >
+            Contact
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* 🔽 Mobile Dropdown Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            // transition={{ type: 'spring', stiffness: 300 }}
-            className='absolute left-0 right-0 top-full backdrop-blur-md bg-white/90 rounded-3xl shadow-xl lg:hidden mt- z-40 px-4 py-6 font-nunito font-semibold'
+            className="absolute left-0 right-0 overflow-y-scroll top-20 backdrop-blur-md bg-white/90 rounded-3xl shadow-xl lg:hidden z-40 px-4 py-6 font-nunito font-semibold"
           >
-            <div className='gap-5 flex flex-col items-center'>
-              <div  onClick={()=>{navigate('/'),setMenuOpen(!menuOpen)}} className='cursor-pointer'>Home</div>
+            <div className="gap-5 flex flex-col items-center">
+              {navLinks.map((link, index) => (
+                <div key={index} className="w-full text-center">
+                  {link.dropdown ? (
+                    <>
+                      <div
+                        onClick={() =>
+                          toggleMobileDropdown(
+                            mobileDropdown === link.label ? null : link.label
+                          )
+                        }
+                        className="cursor-pointer flex items-center justify-center gap-1"
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={18}
+                          className={`transition-transform ${
+                            mobileDropdown === link.label ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+                      {mobileDropdown === link.label && (
+                        <ul className="pl-4 flex flex-col cursor-pointer gap-3 text-black text-center bg-gray-100 p-4 rounded w-full">
+                          {link.dropdown.map((sublink, i) => (
+                            <li
+                              key={i}
+                              onClick={() => {
+                                navigate(sublink.to);
+                                setMenuOpen(false);
+                              }}
+                            >
+                              {sublink.label}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <div
+                      onClick={() => {
+                        navigate(link.to);
+                        setMenuOpen(false);
+                      }}
+                      className="cursor-pointer"
+                    >
+                      {link.label}
+                    </div>
+                  )}
+                </div>
+              ))}
 
-              {/* Hosting Products Toggle */}
-              <div
-                onClick={() => toggleMobileDropdown('hosting')}
-                className='cursor-pointer flex items-center gap-1'
-              >
-                Hosting Products <ChevronDown className={`transition-transform ${mobileDropdown === 'hosting' ? 'rotate-180' : ''}`} size={18} />
-              </div>
-              {mobileDropdown === 'hosting' && (
-                <ul className='pl-4 flex flex-col cursor-pointer gap-3 text-black text-center bg-gray-100 p-4 rounded w-full'>
-                  <li>Web Hosting</li>
-                  <li>VPS Hosting</li>
-                  <li>Dedicated Server</li>
-                  <li>Custom VPS</li>
-                </ul>
-              )}
-
-              <div className=' cursor-pointer' onClick={()=>{navigate('/our-technologies'),setMenuOpen(!menuOpen)}}>Our Technologies</div>
-
-              {/* Company Toggle */}
-              <div
-                onClick={() => toggleMobileDropdown('tech')}
-                className='cursor-pointer flex items-center gap-1'
-              >
-                Company <ChevronDown className={`transition-transform ${mobileDropdown === 'tech' ? 'rotate-180' : ''}`} size={18} />
-              </div>
-              {mobileDropdown === 'tech' && (
-                <ul className='pl-4 flex flex-col cursor-pointer text-center text-black gap-3 bg-gray-100 p-4 rounded w-full'>
-                  <li className=' cursor-pointer' onClick={()=>{navigate('/about'),setMenuOpen(!menuOpen)}}>About Us</li>
-                  <li>Our Brands</li>
-                </ul>
-              )}
-
-              <div>Career</div>
-
+              {/* Mobile Contact Button */}
               <div>
-                <button onClick={()=>{navigate('/contact'),setMenuOpen(!menuOpen)}} className='bg-[#5667ff] text-white px-5 rounded-lg py-2'>Contact us</button>
+                <button
+                  onClick={() => {
+                    navigate("/contact");
+                    setMenuOpen(false);
+                  }}
+                  className="bg-[#5667ff] text-white px-5 py-2 rounded-lg"
+                >
+                  Contact us
+                </button>
               </div>
             </div>
           </motion.div>

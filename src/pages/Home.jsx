@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IoCheckmark } from "react-icons/io5";
 import { motion } from 'framer-motion';
 import hero1 from '../assets/hero.webp';
@@ -11,6 +12,7 @@ import Blog from '../components/Homecomponents/Blog';
 import Distributers from '../components/Homecomponents/Distributers';
 import FreeGifts from '../components/Homecomponents/FreeGifts';
 import HostingFAQ from '../components/Homecomponents/HostingFAQ';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const TWELVE_HOURS = 12 * 60 * 60;
@@ -40,6 +42,7 @@ export default function Home() {
     const secs = String(seconds % 60).padStart(2, "0");
     return `${hrs}:${mins}:${secs}`;
   };
+  const navigate = useNavigate()
 
   return (
     <section className="relative font-plus overflow-hidden">
@@ -105,7 +108,12 @@ export default function Home() {
               transition={{ delay: 1.2 }}
             >
               <button className='px-5 py-2 rounded-md bg-[#5667ff] text-white'>Start now</button>
-              <button className='px-5 py-2 rounded-md border border-black'>Contact us</button>
+              <Link 
+              to={'/contact'}
+              className='px-5 py-2 rounded-md border border-black'>
+                  Contact us
+              </Link>
+
             </motion.div>
 
             <motion.div

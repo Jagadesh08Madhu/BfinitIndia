@@ -8,6 +8,11 @@ import India from "../assets/icons/india.png";
 export default function AboutCom() {
   const offices = [
     {
+      image: India,
+      name: "India",
+      location: "Chennai",
+    },
+    {
       image: Ifel,
       name: "France",
       location: "8 rue de Dublin, 34200, Sète, France.",
@@ -16,11 +21,6 @@ export default function AboutCom() {
       image: SangsadBhaban,
       name: "Bangladesh",
       location: "2/23, Rajia Sultana Road, Mohammadpur, Dhaka.",
-    },
-    {
-      image: India,
-      name: "India",
-      location: "Chennai",
     },
     {
       image: HagiaSophia,
@@ -56,7 +56,7 @@ export default function AboutCom() {
             </div>
             <Link
               to="/contact"
-              className="group mt-5 flex w-fit items-center gap-2 rounded border border-primary px-4 py-2 hover:bg-primary hover:text-white"
+              className="group mt-5 flex w-fit items-center gap-2 rounded border border-primary px-4 py-2 hover:bg-[#5667ff] hover:text-white"
             >
               <span>Contact Now</span>
               <MdArrowOutward className="text-xl transition-transform duration-300 ease-linear group-hover:rotate-45" />

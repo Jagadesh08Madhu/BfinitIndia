@@ -18,16 +18,16 @@ export default function Footer() {
       link:"/"
     },
     {
-      name :"Pricing",
-      link:"/pricing"
+      name :"About us",
+      link:"/about"
     },
     {
       name :"Contact",
       link:"/contact"
     },
     {
-      name :"Compliance",
-      link:"/compliance"
+      name :"Career",
+      link:"/career"
     },
     {
       name :"Cookie policy",
@@ -38,40 +38,19 @@ export default function Footer() {
       link:"/privacy-policy"
     },
     {
-      name :"General Conditions",
-      link:"/general-conditions"
+      name :"Terms and Conditions",
+      link:"/terms-and-conditions"
     },
   ]
 
   const Hosting_Products =[
-    {
-      name :"Web Hosting",
-      link:"/"
-    },
-    {
-      name :"VPS Hosting",
-      link:"/pricing"
-    },
-    {
-      name :"Dedicated Server",
-      link:"/contact"
-    },
-    {
-      name :"Custom VPS",
-      link:"/compliance"
-    },
-    {
-      name :"Starter Webpack",
-      link:"/cookie-policy"
-    },
-    {
-      name :"Distributors Affiliation",
-      link:"/privacy-policy"
-    },
-    {
-      name :"Ecommerce Pack",
-      link:"/general-conditions"
-    },
+    { label: "Web Hosting", to: "/web-hosting" },
+        { label: "VPS Hosting", to: "/vps-hosting" },
+        { label: "Dedicated Server", to: "/dedicated-server" },
+        { label: "Custom VPS", to: "/custom-vps" },
+        { label: "Starter Webpack", to: "/starter-web-pack" },
+        { label: "Distributors Affiliation", to: "/distributor" },
+        { label: "Ecommerce Pack", to: "/bfinit-ecomerce-platform" },
   ]
   return (
     <section className=" pb-5 px-5 lg:px-20 font-plus bg-[#0f1137] text-white">
@@ -147,9 +126,9 @@ export default function Footer() {
                   whileInView={{opacity:1 , x:0}}
                   transition={{duration:index*0.1 , delay:index *0.2}}
                   viewport={{once:true , amount:0.5}}
-                  onClick={()=>navigate(item.link)}
+                  onClick={()=>navigate(item.to)}
                   key={index} className="cursor-pointer hover:text-gray-300  duration-300 text-sm transition-colors">
-                    {item.name}
+                    {item.label}
                   </motion.li>
                 ))}
               </ul>

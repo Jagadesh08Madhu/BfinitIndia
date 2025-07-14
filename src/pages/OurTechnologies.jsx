@@ -38,8 +38,8 @@ const data = [
     items: [
       { name: "SaaS Software", link: "/saas-software" },
       { name: "White Label", link: "/white-label" },
-      { name: "Become a Distributor", link: "/become-distributor" },
-      { name: "E-commerce Platform", link: "/ecommerce-platform" },
+      { name: "Become a Distributor", link: "/reseller-program" },
+      { name: "E-commerce Platform", link: "/bfinit-ecomerce-platform" },
       { name: "E-commerce Guide", link: "/ecommerce-guide" },
     ],
   },
@@ -165,7 +165,7 @@ export default function OurTechnologies() {
                 <li key={idx} className="flex items-center justify-between">
                   <a
                     href={item.link}
-                    target="_blank"
+                    // target="_blank"
                     className="text-black hover:text-[#5667ff] transition flex items-center justify-between w-full"
                   >
                     {item.name}

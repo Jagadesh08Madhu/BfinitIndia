@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BiCopyright, BiHome, BiPhone } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import animData from "../assets/contact-anim.json";
+import { Helmet } from "react-helmet";
 import Lottie from "react-lottie";
 import {
   Input,
@@ -172,7 +173,16 @@ export default function Contact() {
   };
 
   return (
-    <section className="mx-5 py-28 md:mx-20">
+    <div>
+      <Helmet>
+        <title>Contact Us – BFIN SASU | Reach Our Cybersecurity & IT Experts</title>
+        <meta
+          name="description"
+          content="Get in touch with BFIN SASU for inquiries about cybersecurity solutions, SaaS products, secure hosting, and IT services. We're here to help you protect and grow your digital presence."
+        />
+      </Helmet>
+
+      <section className="mx-5 py-28 md:mx-20">
       <div className="grid gap-8 md:gap-16 lg:grid-cols-2">
         <div className="flex flex-col gap-4 md:gap-8">
           <h5 className="font-semibold md:text-2xl text-[#5667ff]">Contact Us</h5>
@@ -324,7 +334,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="group flex items-center justify-center gap-4 rounded border border-primary px-8 py-2 font-semibold text-primary duration-300 ease-linear hover:bg-primary hover:text-white md:w-fit"
+            className="group flex items-center justify-center gap-4 rounded border border-primary px-8 py-2 font-semibold text-primary duration-300 ease-linear hover:bg-[#5667ff] hover:text-white md:w-fit"
           >
             {loader ? (
               <Spinner className="h-5 w-5" />
@@ -360,5 +370,6 @@ export default function Contact() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

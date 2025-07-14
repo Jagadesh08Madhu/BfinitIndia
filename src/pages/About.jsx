@@ -36,7 +36,7 @@ export default function About() {
         />
       </Helmet>
       {/* about us content  */}
-      <div className="mx-5 py-10 grid place-items-center gap-4 md:container md:mx-auto lg:py-28 lg:grid-cols-2 lg:gap-8">
+      <div className="mx-5 pt-28 grid place-items-center gap-4 md:container md:mx-auto lg:pt-40 lg:grid-cols-2 lg:gap-8">
         <div className="flex flex-col gap-4 md:gap-8">
           <h5 className="font-semibold md:text-2xl">About Us</h5>
           <p className="text-2xl font-semibold text-[#5667ff] md:text-4xl">
@@ -74,14 +74,16 @@ export default function About() {
             </Link>
           </div>
         </div>
-        <div className="hidden md:block">
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=NDiltUHXMCE&t=21s"
-            loop
-            controls
-            // width="100%"
-            // height="100%"
-          />
+        <div className="hidden md:block w-full h-full">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/NDiltUHXMCE"
+            title="YouTube video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
       {/* mission & vision  */}
