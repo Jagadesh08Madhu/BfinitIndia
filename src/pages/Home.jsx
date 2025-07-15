@@ -107,7 +107,7 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.2 }}
             >
-              <button className='px-5 py-2 rounded-md bg-[#5667ff] text-white'>Start now</button>
+              <Link to={'/web-hosting'} className='px-5 py-2 rounded-md bg-[#5667ff] text-white'>Start now</Link>
               <Link 
               to={'/contact'}
               className='px-5 py-2 rounded-md border border-black'>

@@ -1,6 +1,8 @@
 import React from "react";
 import { FiExternalLink } from "react-icons/fi";
 import { IoIosArrowForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
 import logo1 from "../assets/logo/logo1.png";
 import logo2 from "../assets/logo/logo2.png";
 import logo3 from "../assets/logo/logo3.png";
@@ -29,7 +31,7 @@ const data = [
     title: "Database Hosting & Security",
     items: [
       { name: "Data Center", link: "/data-center" },
-      { name: "Hosting", link: "/hosting" },
+      { name: "Hosting", link: "/web-hosting" },
       { name: "H Panel", link: "https://hpanel.bfinit.com/login" },
     ],
   },
@@ -81,65 +83,33 @@ const productNames = [
 ];
 
 const Brands = [
-  {
-    logo: logo1,
-    heading: "Bitss WAP Login Protection for Website",
-  },
-  {
-    logo: logo2,
-    heading: "Bitss C Contact Form for Website",
-  },
-  {
-    logo: logo3,
-    heading: "Bitss VWAR Frontline Protection for Device",
-  },
-  {
-    logo: logo4,
-    heading: "BFINIT E-commerce",
-  },
-  {
-    logo: logo5,
-    heading: "BFINIT hPanel Hosting",
-  },
-  {
-    logo: logo6,
-    heading: "BFINIT White Label",
-  },
-  {
-    logo: logo7,
-    heading: "Ifgaap GL Accounting",
-  },
-  {
-    logo: logo8,
-    heading: "Ifgaap Mobile Invoicing",
-  },
-  {
-    logo: logo9,
-    heading: "Omada HR Payroll",
-  },
-  {
-    logo: logo10,
-    heading: "Omada Project Manager",
-  },
-  {
-    logo: logo11,
-    heading: "Clasico Payslips",
-  },
-  {
-    logo: logo12,
-    heading: "Pensaki Blackboard",
-  },
-  {
-    logo: logo13,
-    heading: "Bobosoho Mail",
-  },
-  {
-    logo: logo14,
-    heading: "Social Network & Business Platform",
-  },
+  { logo: logo1, heading: "Bitss WAP Login Protection for Website" },
+  { logo: logo2, heading: "Bitss C Contact Form for Website" },
+  { logo: logo3, heading: "Bitss VWAR Frontline Protection for Device" },
+  { logo: logo4, heading: "BFINIT E-commerce" },
+  { logo: logo5, heading: "BFINIT hPanel Hosting" },
+  { logo: logo6, heading: "BFINIT White Label" },
+  { logo: logo7, heading: "Ifgaap GL Accounting" },
+  { logo: logo8, heading: "Ifgaap Mobile Invoicing" },
+  { logo: logo9, heading: "Omada HR Payroll" },
+  { logo: logo10, heading: "Omada Project Manager" },
+  { logo: logo11, heading: "Clasico Payslips" },
+  { logo: logo12, heading: "Pensaki Blackboard" },
+  { logo: logo13, heading: "Bobosoho Mail" },
+  { logo: logo14, heading: "Social Network & Business Platform" },
 ];
 
 export default function OurTechnologies() {
+  const navigate = useNavigate();
+
+  const handleClick = (link) => {
+    if (link.startsWith("http")) {
+      window.open(link, "_blank");
+    } else {
+      navigate(link);
+    }
+  };
+
   return (
     <section className="font-plus pt-28 mx-5 lg:mx-20">
       {/* Section Title */}
@@ -151,7 +121,7 @@ export default function OurTechnologies() {
       </h1>
 
       {/* Category Cards */}
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-8">
         {data.map((category, index) => (
           <div
             key={index}
@@ -164,14 +134,14 @@ export default function OurTechnologies() {
               {category.items.map((item, idx) => (
                 <li key={idx} className="flex items-center justify-between">
                   <a
-                    href={item.link}
-                    // target="_blank"
-                    className="text-black hover:text-[#5667ff] transition flex items-center justify-between w-full"
+                    onClick={() => handleClick(item.link)}
+                    className="text-black cursor-pointer hover:text-[#5667ff] transition flex items-center justify-between w-full"
                   >
                     {item.name}
-                    <span><FiExternalLink className="text-[#5667ff]" /></span>
+                    <span>
+                      <FiExternalLink className="text-[#5667ff]" />
+                    </span>
                   </a>
-                  
                 </li>
               ))}
             </ul>
@@ -191,7 +161,7 @@ export default function OurTechnologies() {
           remains infinite.
         </p>
 
-        {/* Layout for products and logos */}
+        {/* Product Names & Logos */}
         <div className="flex flex-col md:flex-row gap-10 justify-center items-start px-4">
           {/* Product Names List */}
           <div className="flex flex-col gap-4 md:w-1/3 text-left">

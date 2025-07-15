@@ -148,30 +148,30 @@ export default function Footer() {
               </div>
               <div className='flex items-center gap-3'>
                 <span className='text-2xl'><MdLocalPhone/></span>
-                <a target='_blank'  href="tel:">Phone: </a>
+                <a target='_blank'  href="tel:">Phone: +0033666100010 </a>
               </div>
               <div className='flex items-center gap-3'>
                 <span className='text-2xl'><MdOutlineAttachEmail /></span>
                 <a 
-                  href="mailto:" 
+                  href="mailto:support@bobosohomail.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                 >
-                  Email: 
+                  Email: support@bobosohomail.com
                 </a>
 
               </div>
 
               <div className='flex items-center mt-2 gap-5'>
-                <span className='text-xl border rounded-full hover:-translate-y-2 transition-all ease-in-out p-2'><a href="tel:" target="_blank" rel="noopener noreferrer">
+                <span className='text-xl border rounded-full hover:-translate-y-2 transition-all ease-in-out p-2'><a href="tel:+0033666100010" target="_blank" rel="noopener noreferrer">
                   <MdOutlineWifiCalling3 />
                 </a></span>
 
-                <span className='text-xl border hover:-translate-y-2 transition-all ease-in-out rounded-full p-2'><a target='_blank' href="" rel="noopener noreferrer">
+                <span className='text-xl border hover:-translate-y-2 transition-all ease-in-out rounded-full p-2'><a target='_blank' href="https://maps.app.goo.gl/kAsVzGXUSEAa1i6Z8" rel="noopener noreferrer">
                   <IoLocationOutline />
                 </a></span>
                 
-                <span className='text-xl border hover:-translate-y-2 transition-all ease-in-out rounded-full p-2'><a href="mailto:unayhr-support@gmail.com" target="_blank" rel="noopener noreferrer">
+                <span className='text-xl border hover:-translate-y-2 transition-all ease-in-out rounded-full p-2'><a href="mailto:support@bobosohomail.com" target="_blank" rel="noopener noreferrer">
                   <MdOutlineMailLock  />
                 </a></span>
               </div>
